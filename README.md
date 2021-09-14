@@ -27,6 +27,8 @@ The steps we'll take are:
 * Install docker and docker-compose
 * Install node
 
+----
+
 ### Setup
 
 Go to the root of the project
@@ -39,6 +41,8 @@ When you run `npm run challenge` you will be prompted on stdin to select
 one of 2 options. To ingest the csv file or read the values
 
 To reset the challenge run `npm run reset` and it will clear the database table.
+
+---
 
 ### Things to improve on
 
