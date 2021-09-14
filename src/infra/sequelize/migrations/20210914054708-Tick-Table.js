@@ -9,7 +9,7 @@ module.exports = {
         allowNull: false,
         primaryKey: true
       },
-      date: {
+      timestamp: {
         type: Sequelize.DATE,
       },
       symbol: {
@@ -37,6 +37,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropDatabase('ticks')
+    await queryInterface.dropTable('ticks')
   }
 };

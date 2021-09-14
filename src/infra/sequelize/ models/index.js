@@ -1,6 +1,6 @@
-import config from '../config/config'
-import createTickModel from './tick'
-import { DataTypes } from "sequelize";
+const { DataTypes } = require("sequelize")
+const config = require('../config/config')
+const createTickModel = require('./tick')
 
 const sequelize = config.connection
 
@@ -11,4 +11,4 @@ const models = {
 models["sequelize"] = sequelize;
 models["Sequelize"] = sequelize;
 
-export default models
+module.exports = models

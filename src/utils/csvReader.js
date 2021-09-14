@@ -1,5 +1,5 @@
-import fs from 'fs';
-import csv from 'csv-parser'
+const fs = require('fs')
+const csv = require('csv-parser')
 
 class CSVReader {
 
@@ -8,7 +8,16 @@ class CSVReader {
     this.headers = headers
   }
 
-  read() {
+  isValid() {
+    return fs.existsSync(this.path)
+  }
+
+  clean(rows, options) {
+    const { ignoreFirst = 0 } = options
+    return rows.slice(ignoreFirst, rows.length - 1)
+  }
+
+  read(options) {
     const rows = []
 
     const stream = fs.createReadStream(this.path)
@@ -19,10 +28,11 @@ class CSVReader {
 
     return new Promise((resolve, reject) => {
       stream.on('end', () => {
-        resolve(rows)
+        const cleaned = this.clean(rows, options)
+        resolve(cleaned)
       })
     })
   }
 }
 
-export default CSVReader
+module.exports = CSVReader

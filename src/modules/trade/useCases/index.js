@@ -1,5 +1,8 @@
-const { StoreTicksFromCSV } = require('./storeTicksFromCSV')
+const StoreTicksFromCSV = require('./storeTicksFromCSVUseCase')
+const { tickRepo } = require('../repos')
 
-export default {
-  storeTicksFromCSV: StoreTicksFromCSV
+const storeTicksFromCSVUseCase = new StoreTicksFromCSV(tickRepo)
+
+module.exports = {
+  storeTicksFromCSVUseCase
 }

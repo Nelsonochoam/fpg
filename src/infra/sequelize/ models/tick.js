@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   return sequelize.define('tick', {
     id: {
       type: DataTypes.UUID,
@@ -30,5 +30,5 @@ export default (sequelize, DataTypes) => {
     usdt_volume: {
       type: DataTypes.DECIMAL
     }
-  })
+  },  { timestamps: false })
 }
