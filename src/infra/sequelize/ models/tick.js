@@ -1,36 +1,34 @@
 export default (sequelize, DataTypes) => {
-  // const headers = ['unix','date','symbol','open','high','low','close','Volume BTC','Volume USDT']
-  // 1616309880000.0,2021-03-21 06:58:00,BTC-PERP,57120.0,57129.0,57120.0,57128.0,4.956303455398404,283143.7038
   return sequelize.define('tick', {
-    tick_id: {
+    id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true
     },
-    date: {
+    timestamp: {
       type: DataTypes.DATE,
     },
     symbol: {
       type: DataTypes.STRING(10),
     },
     open: {
-      type: DataTypes.FLOAT
+      type: DataTypes.DECIMAL
     },
     high: {
-      type: DataTypes.FLOAT
+      type: DataTypes.DECIMAL
     },
     low: {
-      types: DataTypes.FLOAT
+      type: DataTypes.DECIMAL
     },
     close: {
-      types: DataTypes.FLOAT
+      type: DataTypes.DECIMAL
     },
     btc_volume: {
-      types: DataTypes.DECIMAL
+      type: DataTypes.DECIMAL
     },
     usdt_volume: {
-      types: DataTypes.DECIMAL
+      type: DataTypes.DECIMAL
     }
   })
 }

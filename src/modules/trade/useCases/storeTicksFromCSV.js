@@ -1,4 +1,4 @@
-import CSVReader from "../../../utils/csvReader";
+const CSVReader = require("../../../utils/csvReader")
 
 export class StoreTicksFromCSV {
   constructor(tickRepo) {

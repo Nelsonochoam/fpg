@@ -1,4 +1,4 @@
-import { StoreTicksFromCSV } from './storeTicksFromCSV'
+const { StoreTicksFromCSV } = require('./storeTicksFromCSV')
 
 export default {
   storeTicksFromCSV: StoreTicksFromCSV

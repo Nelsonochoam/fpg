@@ -1,17 +1,30 @@
-import { Sequelize } from 'sequelize'
+const { Sequelize } = require('sequelize');
 
 const credentials = {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "fpg",
-    "host": "localhost",
-    "dialect": "postgres",
-    "port": 5432
+    "development": {
+        "username": "postgres",
+        "password": "postgres",
+        "database": "fpg",
+        "host": "localhost",
+        "dialect": "postgres",
+    }
 }
 
-const { username, password, database, host, dialect, port } = credentials;
-const connection = new Sequelize(database, username, password, { host, dialect, port })
+const { username, password, database, host, dialect } = credentials["development"];
 
-export default {
-    connection
-}
+module.exports = credentials;
+
+module.exports.connection = new Sequelize(database, username, password, {
+    host,
+    dialect,
+    port: 5432,
+    dialectOptions: {
+        multipleStatements: true,
+    },
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    },
+    logging: false
+});

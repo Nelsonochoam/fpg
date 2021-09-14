@@ -1,8 +1,8 @@
-import { TickRepo } from "./tickRepo";
-import models from "../../../infra/sequelize/models";
+const { TickRepo } = require('./tickRepo')
+const models = require("../../../infra/sequelize/ models")
 
 const tickRepo = new TickRepo(models);
 
-export default {
+module.exports = {
   tickRepo
 }

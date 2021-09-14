@@ -4,12 +4,14 @@
   "description": "",
   "main": "challenge.js",
   "scripts": {
+    "migrate": "sequelize db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Nelson Ochoa",
   "license": "ISC",
   "dependencies": {
     "csv-parser": "^3.0.0",
+    "pg": "^8.7.1",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
