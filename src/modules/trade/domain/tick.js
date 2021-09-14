@@ -1,6 +1,6 @@
 
 class Tick {
-  constructor({ timestamp, symbol, open, high, low, close, btcVolume, usdtVolume }) {
+  constructor({ timestamp, symbol, open, high, low, close, btcVolume, usdtVolume, id }) {
     this.timestamp = timestamp
     this.symbol = symbol
     this.open = open
@@ -9,10 +9,11 @@ class Tick {
     this.close = close
     this.btcVolume = btcVolume
     this.usdtVolume = usdtVolume
+    this.id = id
   }
 
-  static create(props) {
-    return new Tick(props)
+  static create(props, id) {
+    return new Tick({ ...props, id })
   }
 }
 

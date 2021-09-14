@@ -1,3 +1,4 @@
+const Tick = require('../domain/tick')
 
 /*
  * Maps ticks from the persistence to the domain and
@@ -6,8 +7,19 @@
 class TickMap {
 
 
-  static toDomain() {
+  static toDomain(rawTick) {
+    const values = rawTick.dataValues
 
+    return Tick.create({
+      timestamp: new Date(values.timestamp),
+      open: +values.open,
+      high: +values.high,
+      low: +values.low,
+      close: +values.close,
+      btcVolume: +values.btc_volume,
+      usdtVolume: +values.usdt_volume,
+      symbol: values.symbol
+    }, values.id)
   }
 
   static toPersistence(tick) {

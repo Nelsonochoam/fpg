@@ -7,7 +7,9 @@ class TickRepo {
   }
 
   async findAll() {
-    return this.models.Tick.findAll()
+    const rawData = await this.models.Tick.findAll()
+    console.log(rawData)
+    return rawData.map(TickMap.toDomain)
   }
 
   async saveMany(ticks) {

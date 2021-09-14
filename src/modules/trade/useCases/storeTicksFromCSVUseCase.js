@@ -3,7 +3,7 @@ const CSVTickMapper = require("../mappers/csvTickMapper")
 
 class StoreTicksFromCSVUseCase {
   constructor(tickRepo) {
-    this.tickRepo = tickRepo
+    this.repo = tickRepo
   }
 
   async execute({ path, headers }) {
@@ -17,7 +17,7 @@ class StoreTicksFromCSVUseCase {
     const ticks = records.map(CSVTickMapper.toDomain)
 
     try {
-      await this.tickRepo.saveMany(ticks)
+      await this.repo.saveMany(ticks)
     } catch {
       console.error("Failed to save ticks from file")
     }
