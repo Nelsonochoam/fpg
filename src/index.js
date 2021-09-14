@@ -15,11 +15,10 @@ async function storeTicks() {
 
   try {
     await storeTicksFromCSVUseCase.execute(params)
+    console.info("Done")
   } catch {
     console.error("Failed to store ticks from file")
   }
-
-  console.info("Done")
 }
 
 async function readTicks() {
@@ -46,4 +45,4 @@ function main() {
   })
 }
 
-main()
+main();

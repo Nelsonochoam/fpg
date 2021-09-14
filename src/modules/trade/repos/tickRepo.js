@@ -8,7 +8,6 @@ class TickRepo {
 
   async findAll() {
     const rawData = await this.models.Tick.findAll()
-    console.log(rawData)
     return rawData.map(TickMap.toDomain)
   }
 
@@ -16,7 +15,9 @@ class TickRepo {
     const model = this.models.Tick
     const rawTicks = ticks.map(TickMap.toPersistence)
 
-    await model.bulkCreate(rawTicks)
+    await model.bulkCreate(rawTicks,  {
+      ignoreDuplicates: true,
+    })
   }
 }
 

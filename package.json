@@ -1,12 +1,12 @@
 {
-  "name": "challenge",
+  "name": "fpg-challenge",
   "version": "1.0.0",
   "description": "",
   "main": "challenge.js",
   "scripts": {
     "challenge": "node ./src/index.js",
     "migrate": "sequelize db:migrate",
-    "reset": "sequelize db:migrate:undo:all"
+    "reset": "sequelize db:migrate:undo:all && sequelize db:migrate"
   },
   "author": "Nelson Ochoa",
   "license": "ISC",
