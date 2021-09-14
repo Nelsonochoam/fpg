@@ -33,12 +33,13 @@ The steps we'll take are:
 
 Go to the root of the project
 
+* Run `npm install` to install the project dependencies
 * Run `docker-compose up` to start the postgres database container
-* After the container is up run `npm run migrate`
+* Run `npm run migrate` to create the tables
 * Run `npm run challenge` to run the challenge
 
-When you run `npm run challenge` you will be prompted on stdin to select
-one of 2 options. To ingest the csv file or read the values
+When you run `npm run challenge` you will be prompted on stdin from 
+one of 2 options. To ingest the csv file or read the values from the database.
 
 To reset the challenge run `npm run reset` and it will clear the database table.
 
